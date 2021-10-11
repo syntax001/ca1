@@ -2,7 +2,6 @@ package facades;
 
 import dtos.AddressDTO;
 import entities.Address;
-
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 
@@ -22,7 +21,9 @@ public class AddressFacade {
         return instance;
     }
 
-    private EntityManager getEntityManager(){return emf.createEntityManager();}
+    private EntityManager getEntityManager(){
+        return emf.createEntityManager();
+    }
 
     public AddressDTO createAddress(AddressDTO add){
         Address address = new Address(add.getStreetName(), add.getAdditionalInfo());
@@ -36,8 +37,4 @@ public class AddressFacade {
         }
     return new AddressDTO(address);
     }
-
-
-
-
 }

@@ -15,7 +15,7 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="devops-starter" options="-endorseddirs C:\Users\Flobobo\Datamatiker\Sem3\Github\ca_krak_backend\target/endorsed" />
+      <module name="devops-starter" options="-endorseddirs C:\Users\emilr\ca1\target/endorsed" />
     </option>
   </component>
 </project>

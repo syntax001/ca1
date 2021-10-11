@@ -1,15 +1,10 @@
-package dtos.Person;
+package dtos;
 
-import dtos.AddressDTO;
-import dtos.Hobbies.HobbyDTO;
-import dtos.Phone.PhoneDTO;
 import entities.*;
-
 import java.util.ArrayList;
 import java.util.List;
 
 public class PersonDTO {
-
     public Integer id;
     public String firstName;
     public String lastName;
@@ -46,7 +41,7 @@ public class PersonDTO {
     }
 
 
-    //id
+    //ID getter/setter
     public Integer getId() {
         return id;
     }
@@ -55,7 +50,7 @@ public class PersonDTO {
         this.id = id;
     }
 
-    //first name
+    //Firstname getter/setter
     public String getFirstName() {
         return firstName;
     }
@@ -64,7 +59,7 @@ public class PersonDTO {
         this.firstName = firstName;
     }
 
-    //last name
+    //Lastname getter/setter
     public String getLastName() {
         return lastName;
     }
@@ -73,7 +68,7 @@ public class PersonDTO {
         this.lastName = lastName;
     }
 
-    //email
+    //Email getter/setter
     public String getEmail() {
         return email;
     }
@@ -82,7 +77,7 @@ public class PersonDTO {
         this.email = email;
     }
 
-    //phone
+    //Phone getter/setter
     public List<PhoneDTO> getPhones() {
         return phones;
     }
@@ -91,7 +86,7 @@ public class PersonDTO {
         this.phones = phones;
     }
 
-    //address
+    //Address getter/setter
     public AddressDTO getAddress() {
         return addressDTO;
     }
@@ -100,7 +95,7 @@ public class PersonDTO {
         this.addressDTO = address;
     }
 
-    //hobby
+    //Hobby getter/setter
     public List<HobbyDTO> getHobby() {
         return hobbyListDTO;
     }

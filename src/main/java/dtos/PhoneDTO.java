@@ -1,15 +1,12 @@
-package dtos.Phone;
+package dtos;
 
 import entities.Phone;
-
-
 import java.util.ArrayList;
 import java.util.List;
 
 public class PhoneDTO {
     private Integer id;
     private String number;
-    private String description;
 
 
     public static List<PhoneDTO> getPhoneDtos(List<Phone> ph){
@@ -22,12 +19,11 @@ public class PhoneDTO {
 
     public PhoneDTO(Phone phone){
         if(phone.getId()!= null){
-            this.description = phone.getDescription();
             this.number = phone.getNumber();
         }
     }
 
-    //id
+    //ID getter/setter
     public Integer getId() {
         return id;
     }
@@ -36,21 +32,12 @@ public class PhoneDTO {
         this.id = id;
     }
 
-    //number
+    //Number getter/setter
     public String getNumber() {
         return number;
     }
 
     public void setNumber(String number) {
         this.number = number;
-    }
-
-    //description
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
     }
 }

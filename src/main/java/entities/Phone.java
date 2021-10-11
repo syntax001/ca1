@@ -1,22 +1,15 @@
 package entities;
-
-
-
-import dtos.Phone.PhoneDTO;
-
+import dtos.PhoneDTO;
 import javax.persistence.*;
 
     @Entity
     @NamedQuery(name = "Phone.deleteAllRows", query = "DELETE from Phone")
     public class Phone {
-
         private static final long SerialVersionUID = 1L;
         @Id
-        @GeneratedValue
-        @Column(name = "id", nullable = false)
+        @GeneratedValue(strategy = GenerationType.IDENTITY)
         private Integer id;
         private String number;
-        private String description;
 
         @ManyToOne
         private Person person;
@@ -25,16 +18,14 @@ import javax.persistence.*;
 
         public Phone(PhoneDTO phoneDTO){
             this.number = phoneDTO.getNumber();
-            this.description = phoneDTO.getDescription();
             this.id = phoneDTO.getId();
         }
 
-        public Phone(String number, String description){
+        public Phone(String number){
             this.number = number;
-            this.description = description;
         }
 
-        //id
+        //ID getter/setter
         public Integer getId() {
             return id;
         }
@@ -43,7 +34,7 @@ import javax.persistence.*;
             this.id = id;
         }
 
-        //number
+        //Number getter/setter
         public String getNumber() {
             return number;
         }
@@ -52,16 +43,7 @@ import javax.persistence.*;
             this.number = number;
         }
 
-        //description
-        public String getDescription() {
-            return description;
-        }
-
-        public void setDescription(String description) {
-            this.description = description;
-        }
-
-        //person
+        //Person getter/setter
         public Person getPerson() {
             return person;
         }

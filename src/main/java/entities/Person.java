@@ -1,6 +1,5 @@
 package entities;
 
-
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -13,13 +12,10 @@ public class Person implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", nullable = false, length = 6)
     private Integer id;
-
     public String firstName;
     public String lastName;
     public String email;
-    public Integer age;
 
     @OneToMany(mappedBy = "person", cascade = CascadeType.PERSIST)
     private List<Phone> phones = new ArrayList<>();
@@ -45,34 +41,30 @@ public class Person implements Serializable {
         this.lastName = lastName;
         this.email = email;
         this.phones = phones;
-        this.age = age;
         this.address = address;
         this.hobbyList = hobbyList;
     }
 
 
-    //age
-    public Integer getAge() {
-        return age;
+    //ID getter/setter
+    public Integer getId(){
+        return id;
     }
 
-    public void setAge(Integer age) {
-        this.age = age;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
-    //id
-    public Integer getId(){return id;}
-
-    public void setId(Integer id) {this.id = id;}
-
-    //first name
+    //FirstName getter/setter
     public String getFirstName() {
         return firstName;
     }
 
-    public void setFirstName(String firstName) { this.firstName = firstName; }
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
 
-    //last name
+    //LastName getter/setter
     public String getLastName() {
         return lastName;
     }
@@ -81,7 +73,7 @@ public class Person implements Serializable {
         this.lastName = lastName;
     }
 
-    //email
+    //Email getter/setter
     public String getEmail() {
         return email;
     }
@@ -90,7 +82,7 @@ public class Person implements Serializable {
         this.email = email;
     }
 
-    //phone
+    //Phone getter/setter
     public List<Phone> getPhones() {
         return phones;
     }
@@ -99,9 +91,11 @@ public class Person implements Serializable {
         this.phones = phones;
     }
 
-    public void addPhone(Phone phone){phones.add(phone);}
+    public void addPhone(Phone phone){
+        phones.add(phone);
+    }
 
-    //address
+    //Address getter/setter
     public Address getAddress() {
         return address;
     }
@@ -110,13 +104,16 @@ public class Person implements Serializable {
         this.address = address;
     }
 
-    //hobby list
-    public List<Hobby> getHobbyList(){return hobbyList;}
+    //Hobby getter/setter
+    public List<Hobby> getHobbyList(){
+        return hobbyList;
+    }
 
-    public void setHobbyList(List<Hobby> hobbyList){this.hobbyList = hobbyList;}
+    public void setHobbyList(List<Hobby> hobbyList){
+        this.hobbyList = hobbyList;
+    }
 
-    public void addHobby(Hobby hobby){hobbyList.add(hobby);}
-
-
-
+    public void addHobby(Hobby hobby){
+        hobbyList.add(hobby);
+    }
 }

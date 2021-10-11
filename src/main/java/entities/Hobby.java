@@ -11,31 +11,24 @@ public class Hobby implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
-    @Column(length = 50, name = "name", nullable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String name;
-
-    private String wikiLink;
     private String category;
     private String type;
 
     @ManyToMany
-    @JoinTable(
-            name = "link_person_hobby",
-            joinColumns = @JoinColumn(name = "id")
-    )
     private List<Person> persons;
 
     public Hobby(){}
 
-    public Hobby(String name, String wikiLink, String category, String type){
+    public Hobby(String name, String category, String type){
         this.name = name;
-        this.wikiLink = wikiLink;
         this.category = category;
         this.type = type;
         this.persons = new ArrayList<>();
     }
 
-    //name
+    //Name getter/setter
     public String getName() {
         return name;
     }
@@ -44,16 +37,7 @@ public class Hobby implements Serializable {
         this.name = name;
     }
 
-    //wikilink
-    public String getWikiLink() {
-        return wikiLink;
-    }
-
-    public void setWikiLink(String wikiLink) {
-        this.wikiLink = wikiLink;
-    }
-
-    //category
+    //Category getter/setter
     public String getCategory() {
         return category;
     }
@@ -62,7 +46,7 @@ public class Hobby implements Serializable {
         this.category = category;
     }
 
-    //type
+    //Type getter/setter
     public String getType() {
         return type;
     }
@@ -72,9 +56,7 @@ public class Hobby implements Serializable {
     }
 
 
-    //persons
-
-
+    //Person getter/setter
     public List<Person> getPersons() {
         return persons;
     }

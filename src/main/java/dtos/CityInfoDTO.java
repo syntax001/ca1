@@ -1,11 +1,8 @@
-package dtos.CityInfo;
+package dtos;
 
 import entities.CityInfo;
-
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
-
 
 public class CityInfoDTO {
     private Integer id;
@@ -21,7 +18,7 @@ public class CityInfoDTO {
 
     public static void getCityInfo(){};
 
-    public CityInfoDTO(){ }
+    public CityInfoDTO(){}
 
     public CityInfoDTO(CityInfo cityInfo){
         if(cityInfo.getZipCode() != null){
@@ -32,7 +29,7 @@ public class CityInfoDTO {
     }
 
 
-    //zipcode
+    //Zipcode getter/setter
     public Integer getZipCode() {
         return zipCode;
     }
@@ -41,7 +38,7 @@ public class CityInfoDTO {
         this.zipCode = zipCode;
     }
 
-    //city
+    //City getter/setter
     public String getCity() {
         return city;
     }
@@ -50,26 +47,13 @@ public class CityInfoDTO {
         this.city = city;
     }
 
-    //id
-    public Integer getId(){return id;}
-
-    public void setId(Integer id){this.id = id;}
-
-
-    @Override
-    public boolean equals(Object o){
-        if(this == o) return true;
-        if(o==null || getClass() != o.getClass()) return false;
-        CityInfoDTO that = (CityInfoDTO) o;
-        return Objects.equals(zipCode, that.getZipCode()) && Objects.equals(city, that.getCity()) && Objects.equals(id, that.getId());
+    //ID getter/setter
+    public Integer getId(){
+        return id;
     }
 
-
-    @Override
-    public int hashCode(){
-        return Objects.hash(id,zipCode,city);
+    public void setId(Integer id){
+        this.id = id;
     }
-
-
 
 }

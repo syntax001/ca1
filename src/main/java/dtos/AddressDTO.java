@@ -1,9 +1,6 @@
 package dtos;
 
-import dtos.CityInfo.CityInfoDTO;
 import entities.Address;
-
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -35,16 +32,7 @@ public class AddressDTO {
         this.cityInfoDTO = cityInfoDTO;
     }
 
-/*
-    public static AddressDTO getFromList(Address address){
-        return address.stream();
-                .map(address -> new AddressDTO(address))
-                .collect(Collectors.toList());
-    }
-  */
-
-
-    //additional info
+    //additionalinfo getter/setter
     public String getAdditionalInfo() {
         return additionalInfo;
     }
@@ -53,7 +41,7 @@ public class AddressDTO {
         this.additionalInfo = additionalInfo;
     }
 
-    //city
+    //City getter/setter
     public CityInfoDTO getCityInfo() {
         return cityInfoDTO;
     }
@@ -62,7 +50,7 @@ public class AddressDTO {
         this.cityInfoDTO = cityInfo;
     }
 
-    //streetname
+    //Streetname getter/setter
     public String getStreetName() {
         return streetName;
     }
@@ -70,23 +58,5 @@ public class AddressDTO {
     public void setStreetName(String streetName) {
         this.streetName = streetName;
     }
-
-
-    @Override
-    public boolean equals(Object o){
-        if(this==o) return true;
-        if(o==null || getClass() != o.getClass()) return false;
-        AddressDTO that = (AddressDTO) o;
-        return Objects.equals(streetName, that.streetName)&& Objects.equals(additionalInfo, that.additionalInfo) && Objects.equals(cityInfoDTO, that.cityInfoDTO);
-    }
-
-
-    @Override
-    public int hashCode(){
-        return Objects.hash(streetName, additionalInfo, cityInfoDTO);
-    }
-
-
-
 
 }

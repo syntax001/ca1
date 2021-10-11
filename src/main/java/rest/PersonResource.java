@@ -1,27 +1,20 @@
 package rest;
 
-
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import dtos.Person.PersonDTO;
+import dtos.PersonDTO;
 import facades.PersonFacade;
 import utils.EMF_Creator;
 
 import javax.persistence.EntityManagerFactory;
 import javax.ws.rs.*;
 
-@Path("person")
+@Path("/person")
 public class PersonResource {
 
     private static final EntityManagerFactory EMF = EMF_Creator.createEntityManagerFactory();
     private static final PersonFacade FACADE = PersonFacade.getInstance(EMF);
     private static final Gson GSON  = new GsonBuilder().setPrettyPrinting().create();
-
-    @GET
-    @Produces("text/plain")
-    public String hello(){
-        return "Hello, World!";
-    }
 
     @GET
     @Produces("application/json")
@@ -64,28 +57,6 @@ public class PersonResource {
     public String getHobbyCount(@PathParam("hobby") String hobby){
         return GSON.toJson(FACADE.getNumberOfPeopleByHobby(hobby));
     }
-
-    @POST
-    @Produces("application/json")
-    @Consumes("application/json")
-    public String addPerson(String person){
-        PersonDTO p = GSON.fromJson(person, PersonDTO.class);
-        PersonDTO pNew = FACADE.createPerson(p);
-        return GSON.toJson(pNew);
-    }
-
-    @PUT
-    @Path("/{id}")
-    public String editPerson(@PathParam("id") Integer id, String person){
-        PersonDTO p = GSON.fromJson(person, PersonDTO.class);
-        p.setId(id);
-        PersonDTO pEdited = FACADE.editBasicInfo(p);
-        return GSON.toJson(pEdited);
-
-    }
-
-
-
 
 }
 

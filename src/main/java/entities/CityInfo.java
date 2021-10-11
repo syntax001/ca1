@@ -11,7 +11,6 @@ public class CityInfo implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", nullable = false)
     private Integer id;
     private int zipCode;
     private String city;
@@ -28,7 +27,7 @@ public class CityInfo implements Serializable {
         this.addresses = new ArrayList<>();
     }
 
-    //id
+    //ID getter/setter
     public Integer getId() {
         return id;
     }
@@ -37,7 +36,7 @@ public class CityInfo implements Serializable {
         this.id = id;
     }
 
-    //zipcode
+    //Zipcode getter/setter
     public Integer getZipCode() {
         return zipCode;
     }
@@ -46,7 +45,7 @@ public class CityInfo implements Serializable {
         this.zipCode = zipCode;
     }
 
-    //city
+    //City getter/setter
     public String getCity() {
         return city;
     }
@@ -55,7 +54,7 @@ public class CityInfo implements Serializable {
         this.city = city;
     }
 
-    //addresses
+    //Address getter/setter
     public List<Address> getAddresses() {
         return addresses;
     }
